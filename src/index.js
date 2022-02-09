@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from "./components/App"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  )
+  
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ 
+
+// ReactDOM.render(<Clock locale="bn-BD"></Clock>, document.getElementById('root'));
+
+// const element = <h1>Hello world</h1>
+
+// function getGreeting(user){
+//     if(user) {
+//         return <h1> Hello, {user} </h1>; 
+//     }
+//     return <h1>Hello, Stranger. </h1>
+// }
+
+// const element2 = <h1> Hello {getGreeting('Arif')}</h1>
+
+// console.log(element); 
+

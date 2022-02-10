@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import React, { useState } from 'react';
 import { Button, Table } from "react-bootstrap";
-import Test2 from './Test2';
-import Test3 from './Test3';
+import Details from './Details';
 import * as ReactBootStrap from 'react-bootstrap'; 
 
 
-class Test1 extends Component {
-    state = {
-        show: false,
-        page: '',
-        selectedProduct: '',
-        products: [{
+function Products (){
+    const [loader, setloader] = useState(false); 
+    const [page, setPage] = useState('');
+    const [selectedProduct, setselectedProduct] = useState('');
+
+    const products = [{
         name: 'Tshirt',
         description: 'T-shirt Description',
         price: '340',
@@ -29,31 +26,23 @@ class Test1 extends Component {
         description: 'Kamiz Description',
         price: '34',
         category: 'Woman Category',
-        },
-        ]}  
-    
-    myClick = (product) =>{
-        this.setState({
-            show: true, 
-            });
-    setTimeout(() => {
-                this.click(product);
+        }, 
+    ]
+       
+    const myClick = (product) =>{
+        
+        setloader(true);
+        setPage(''); 
+        setTimeout(() => {
+                click(product);
               }, 3000);
-    
     }
 
-    click = (product) =>{
-        
-         this.setState({
-        show:false,
-         page: 'Test2',
-         selectedProduct: product,
-         
-         });
+    const click = (product) =>{
+        setselectedProduct(product);
+         setloader(false);
+         setPage('Details');
     }
-
-    render() {
-        
 
         return (
             <div>
@@ -75,12 +64,12 @@ class Test1 extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.products.map((product, ind) => (
+                    {products.map((product, ind) => (
                         
                         <tr>
                         <td>{ind}</td>
                         
-                            <Button onClick={()=>this.myClick(product)}>
+                            <Button onClick={()=>myClick(product)}>
                                 
                             {product.name}
                             </Button>
@@ -97,18 +86,16 @@ class Test1 extends Component {
                 </Table>
                 
                 {
-                this.state.show && <div> <ReactBootStrap.Spinner animation="border" /></div>
+                loader && <div> <ReactBootStrap.Spinner animation="border" /></div>
                 // render what you want
                 }     
                 
-               
-
-                {this.state.page === 'Test2' ? <Test2 product={this.state.selectedProduct}/> : <Test3/>} 
+                {page === 'Details' ? <Details product={selectedProduct}/> : null} 
              </div>
         );
-    }
+    
 }
 
-export default Test1; 
+export default Products; 
 
 

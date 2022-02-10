@@ -2,28 +2,18 @@
 import React, {useState, useEffect} from 'react';
 import "./App.css"; 
 import Header from "./Header"; 
-import ProductList from "./ProductList"; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddProduct from "./AddProduct"; 
-import Details from './Details';
-import Test from '../pages/Test';
-import { Component } from 'react';
-import Test1 from '../pages/Test1';
 
-class App extends Component {
+import Products from '../pages/Products';
 
-  state={
-    page: '', 
-  }
+function App(){
 
-  render(){
     return (
       <div>
-        <Test1/>
+        <Products/>
       </div>
       
       )
-  }
 }
 
 

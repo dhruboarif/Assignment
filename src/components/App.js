@@ -4,13 +4,13 @@ import "./App.css";
 import Header from "./Header"; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Products from '../pages/Products';
+import Shop from '../try/Shop';
 
 function App(){
 
     return (
       <div>
-        <Products/>
+        <Shop/>
       </div>
       
       )
